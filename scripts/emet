@@ -1,0 +1,20 @@
+#!/usr/bin/python
+
+import sys
+import logging
+from ConfigParser import ConfigParser
+from golem.auth import get_api
+from golem.drive import loop
+from golem.chem import Chem
+import golem
+
+if __name__ == '__main__':
+    cp = ConfigParser()
+    cp.read(sys.argv[1])
+    logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+    api = auth.get_api(cp)
+    chem = Chem()
+    how_often = cp.item('global', 'check every')
+    cache = cp.item('global', 'cache')
+    me = cp.item('global', 'screen name')
+    drive.loop(api, how_often, cache, me, chem)
