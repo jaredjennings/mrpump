@@ -14,7 +14,7 @@ if __name__ == '__main__':
     logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
     api = get_api(cp)
     chem = Chem()
-    how_often = cp.get('global', 'check every')
+    how_often = float(cp.get('global', 'check every'))
     cache = cp.get('global', 'cache')
     me = cp.get('global', 'screen name')
     loop(api, how_often, cache, me, chem)
