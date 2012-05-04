@@ -3,10 +3,9 @@
 import sys
 import logging
 from ConfigParser import ConfigParser
-from golem.auth import get_api
-from golem.drive import loop
-from golem.chem import Chem
-import golem
+from mrpump.auth import get_api
+from mrpump.drive import loop
+from mrpump.chem import Chem
 
 if __name__ == '__main__':
     cp = ConfigParser()
