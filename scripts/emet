@@ -8,13 +8,17 @@ from mrpump.drive import loop
 from mrpump.chem import Chem
 
 if __name__ == '__main__':
-    cp = ConfigParser()
+    cp = ConfigParser({
+            'log level': 'debug',
+        })
     cp.read(sys.argv[1])
-    logging.basicConfig(stream=sys.stdout, level=logging.DEBUG,
-        format='%(asctime)s: %(name)s: %(levelname)s: %(message)s')
     api = get_api(cp)
     chem = Chem()
     how_often = float(cp.get('global', 'check every'))
     cache = cp.get('global', 'cache')
     me = cp.get('global', 'screen name')
+    levelname = cp.get('global', 'log level')
+    level = getattr(logging, levelname.upper())
+    logging.basicConfig(stream=sys.stdout, level=level,
+        format='%(asctime)s: %(name)s: %(levelname)s: %(message)s')
     loop(api, how_often, cache, me, chem)
