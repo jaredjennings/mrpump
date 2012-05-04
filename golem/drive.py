@@ -32,9 +32,11 @@ def loop(api, seconds, already_seen_filename, my_screen_name, handler):
                 reply = reply[:140]
                 if reply:
                     try:
+                        # avoid "Whoops, you already said that!"
+                        unique_nonce = str(int(time.time()))[-3:]
                         api.send_direct_message(
                                 screen_name=dm.sender.screen_name,
-                                text=reply)
+                                text=unique_nonce + ' ' + reply)
                         log.info('>> %s: %r', dm.sender.screen_name, reply)
                     except tweepy.TweepError, e:
                         log.error('during reply: %r', e)

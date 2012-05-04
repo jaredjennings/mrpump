@@ -6,8 +6,11 @@ class ChemBase(object):
         pass
 
     def __call__(self, sender_screen_name, message):
+        # avoid "Whoops, you already said that!"
+        message = message.lstrip('0123456789 ')
         if ' ' in message:
             firstword, rest = message.split(' ', 1)
+
         else:
             firstword = message
             rest = ''
