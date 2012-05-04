@@ -1,4 +1,4 @@
-from golem.chembase import ChemBase
+from mrpump.chembase import ChemBase
 
 class Chem(ChemBase):
     def _msg_ping(self, rest):

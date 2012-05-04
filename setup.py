@@ -10,7 +10,7 @@ setup(
     author="Jared Jennings",
     author_email="jjennings@fastmail.fm",
     packages=['mrpump'],
-    scripts=['emet'],
+    scripts=['scripts/emet'],
     classifiers=[
         'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
         'Environment :: Console',
