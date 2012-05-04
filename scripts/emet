@@ -11,7 +11,8 @@ import golem
 if __name__ == '__main__':
     cp = ConfigParser()
     cp.read(sys.argv[1])
-    logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+    logging.basicConfig(stream=sys.stdout, level=logging.DEBUG,
+        format='%(asctime)s: %(name)s: %(levelname)s: %(message)s')
     api = get_api(cp)
     chem = Chem()
     how_often = float(cp.get('global', 'check every'))
