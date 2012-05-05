@@ -37,7 +37,7 @@ def load_chems(cp, forehead):
         use = cp.get(chem_section, 'use')
         # expect syntax: egg:Eggname#entrypointname
         egg, ep = use.split(':')[1].split('#')
-        chem_class = pkg_resources.load_entry_point(egg, 'mrpump_chem', ep)
+        chem_class = pkg_resources.load_entry_point(egg, 'mrpump.chem', ep)
         settings = {'name': chem_section}
         settings.update(dict(cp.items(chem_section)))
         chem = chem_class(**settings)

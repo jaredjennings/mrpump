@@ -19,7 +19,7 @@ setup(
     keywords='twitter bot',
     zip_safe=True,
     entry_points="""
-        [mrpump_chem]
+        [mrpump.chem]
         ping = mrpump.ping_chem:PingChem
     """,
 )
