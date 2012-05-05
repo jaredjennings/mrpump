@@ -22,4 +22,5 @@ setup(
         [mrpump.chem]
         ping = mrpump.ping_chem:PingChem
     """,
+    install_requires=['tweepy'],
 )
