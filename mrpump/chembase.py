@@ -5,7 +5,7 @@ class ChemBase(object):
         self.log = logging.getLogger('Handler')
         pass
 
-    def __call__(self, sender_screen_name, message):
+    def __call__(self, sender_screen_name, message, reply):
         # avoid "Whoops, you already said that!"
         message = message.lstrip('0123456789 ')
         if ' ' in message:
@@ -20,10 +20,10 @@ class ChemBase(object):
             self.log.debug('calling %s with %r', name, rest)
         except AttributeError:
             self.log.error('could not handle message %r', message)
-            return 'did not understand'
+            reply('did not understand')
         try:
-            return method(rest)
+            method(rest, reply)
         except Exception, e:
             self.log.error('while dealing with message %r', message)
             self.log.error('%r', e)
-            return 'error: %r' % e
+            reply('error: %r' % e)

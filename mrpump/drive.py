@@ -34,19 +34,19 @@ def loop(api, seconds, already_seen_filename, my_screen_name, handler):
                 log.debug('ignoring DM %r %r from myself', id, dm.text)
             else:
                 log.info('<< %s: %r', dm.sender.screen_name, dm.text)
-                reply = handler(dm.sender.screen_name, dm.text)
-                # clamp to max length, to avoid one possible error
-                reply = reply[:140]
-                if reply:
+                def reply(text):
+                    # clamp to max length, to avoid one possible error
+                    text = text[:140]
                     try:
                         # avoid "Whoops, you already said that!"
                         unique_nonce = str(int(time.time()))[-3:]
                         api.send_direct_message(
                                 screen_name=dm.sender.screen_name,
-                                text=unique_nonce + ' ' + reply)
-                        log.info('>> %s: %r', dm.sender.screen_name, reply)
+                                text=unique_nonce + ' ' + text)
+                        log.info('>> %s: %r', dm.sender.screen_name, text)
                     except tweepy.TweepError, e:
                         log.error('TweepError during reply: %s', e.reason)
+                handler(dm.sender.screen_name, dm.text, reply)
         # dms will only ever contain the latest 20 dms; by storing those
         # ids we will not have an ever-growing already_seen list.
         already_seen = set(dms.keys())
