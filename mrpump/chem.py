@@ -14,8 +14,15 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-from mrpump.chembase import ChemBase
+class Chem(object):
+    def __init__(self, **kwargs):
+        self.name = kwargs.get('name', 'unnamed')
 
-class Chem(ChemBase):
-    def _msg_ping(self, rest, reply):
-        reply('pong')
+    def appliesTo(self, text):
+        return False
+
+    def __call__(self, sender_screen_name, text, reply):
+        pass
+
+    def __repr__(self):
+        return '<Chem %s>' % self.name
