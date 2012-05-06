@@ -5,8 +5,9 @@ except ImportError:
 
 setup(
     name='mrpump',
-    version='0.1dev',
+    version='0.1',
     license='GPLv3 or later',
+    url='http://github.com/jaredjennings/mrpump',
     author="Jared Jennings",
     author_email="jjennings@fastmail.fm",
     packages=['mrpump'],
