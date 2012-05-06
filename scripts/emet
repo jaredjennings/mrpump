@@ -32,10 +32,20 @@ def setup_logging(cp):
 
 def load_chems(cp, forehead):
     log = logging.getLogger('load_chems')
+    plugin_path = cp.get('global', 'plugin path').split(':')
+    # got some help from http://trac.edgewall.org/browser/trunk/trac/loader.py
+    distributions, errors = pkg_resources.working_set.find_plugins(
+            pkg_resources.Environment(plugin_path))
+    for d in distributions:
+        if d not in pkg_resources.working_set:
+            log.debug('adding plugin %s from %s', d, d.location)
+            pkg_resources.working_set.add(d)
+    # ... heck with the errors
     for chem_section in cp.get('global', 'chems').split(','):
         chem_section = chem_section.strip()
         use = cp.get(chem_section, 'use')
         # expect syntax: egg:Eggname#entrypointname
+        # syntax modelled after http://pythonpaste.org/deploy/#the-config-file
         egg, ep = use.split(':')[1].split('#')
         chem_class = pkg_resources.load_entry_point(egg, 'mrpump.chem', ep)
         settings = {'name': chem_section}
@@ -47,6 +57,7 @@ def load_chems(cp, forehead):
 if __name__ == '__main__':
     cp = ConfigParser({
             'log level': 'debug',
+            'plugin path': '',
         })
     cp.read(sys.argv[1])
     api = get_api(cp)

@@ -52,6 +52,9 @@ use = egg:time_chem#time
 format = Year %Y month %m day %d
 
 [global]
+# A colon-separated list of directories wherein eggs containing chems are to be
+# found.
+plugin path = /home/me/mrpump-plugins
 # This is the same as the section name above.
 screen name = npfour
 # Name of a file that Mr. Pump can write in. Gets no larger than 10k.
@@ -71,7 +74,7 @@ Terminology
 http://en.wikipedia.org/wiki/Golems_(Discworld)
 
 
-Expanding
----------
+Making Mr. Pump do cool stuff
+-----------------------------
 
 Write a chem and put it in an egg.
