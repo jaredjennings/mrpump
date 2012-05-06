@@ -34,7 +34,7 @@ key = ABCDEFGHijkl012345MNO
 secret = gr0igh24g8h240gh2rvun92rnuEIIH847fhier00
 
 # (this is the screen name of the bot)
-[npfour]
+[mygolem]
 # - and you get these two when you get your developer access token.
 token = 284729478-KANEFIIGRVKNRVO3883474KFKEVDKknvdvdkn993
 secret = prgiIRGJIGkvmvvnkfkKNKRFNKFIFEIV48347fenef
@@ -56,9 +56,9 @@ format = Year %Y month %m day %d
 # found.
 plugin path = /home/me/mrpump-plugins
 # This is the same as the section name above.
-screen name = npfour
+screen name = mygolem
 # Name of a file that Mr. Pump can write in. Gets no larger than 10k.
-cache = already_seen
+cache = /tmp/already_seen
 # How many seconds between checking messages. Don't make Twitter angry.
 check every = 60
 # debug, info, error: minimum level of messages to display. Debug is quite

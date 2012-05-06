@@ -1,2 +1,4 @@
-COPYING.txt
-README.rst
+include COPYING.txt
+include README.rst
+include examples/time_chem/setup.py
+include examples/time_chem/time_chem/__init__.py
