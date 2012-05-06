@@ -21,8 +21,9 @@ To use
 What are the numbers in the messages?
 .....................................
 
-Just a way to get around Twitters "Whoops, you already said that!" When you are
-talking to computers you may repeat yourself more than with people.
+Just a way to get around Twitter's "Whoops, you already said that!" message. It
+appears to be meant to prevent double posting. But when you are talking to
+computers you may need to repeat yourself more often than with people.
 
 
 
