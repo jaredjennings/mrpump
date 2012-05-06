@@ -77,4 +77,11 @@ http://en.wikipedia.org/wiki/Golems_(Discworld)
 Making Mr. Pump do cool stuff
 -----------------------------
 
-Write a chem and put it in an egg.
+Write a chem and put it in an egg. Then change your configuration to include
+it, and restart Mr. Pump. Presto, your new functionality is ready!
+
+In the examples directory there is a time chem. To make it work, go in that
+directory, and run ``python setup.py bdist_egg``. Put the egg file (dist/*egg)
+in a directory that's on the configured ``plugin path``. The ``[time]`` section
+in the example configuration above will load the time chem. Now run ``emet``,
+and DM your bot, ``time``. 
