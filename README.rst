@@ -3,19 +3,19 @@ Mr. Pump is a twitter bot, using tweepy.
 To use
 ------
 
- 0. Install Mr. Pump.
- 1. Set up an account for Mr. Pump on Twitter.
- 2. Follow Pump's account, and make him follow yours.
- 2. Visit dev.twitter.com. Create a new 'application.'
- 3. Remember that only you are responsible for how you use or abuse Twitter.
- 4. Get the developer access token for your app.
- 5. Write a config file; we'll call it golem.ini. (see below.)
- 6. Run Mr. Pump::
+0. Install Mr. Pump.
+1. Set up an account for Mr. Pump on Twitter.
+2. Follow Pump's account, and make him follow yours.
+3. Visit dev.twitter.com. Create a new 'application.'
+4. Remember that only you are responsible for how you use or abuse Twitter.
+5. Get the developer access token for your app.
+6. Write a config file; we'll call it golem.ini. (see below.)
+7. Run Mr. Pump::
 
-      emet golem.ini
+     emet golem.ini
 
- 7. Send a direct message to Mr. Pump, e.g. "19 ping."
- 8. Receive his reply: "927 pong."
+8. Send a direct message to Mr. Pump, e.g. "19 ping."
+9. Receive his reply: "927 pong."
 
 
 What are the numbers in the messages?
