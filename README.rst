@@ -28,45 +28,47 @@ talking to computers you may repeat yourself more than with people.
 
 Config file
 -----------
-[app]
-# OAuth info needed to log in. You get these two when you register your app -
-key = ABCDEFGHijkl012345MNO
-secret = gr0igh24g8h240gh2rvun92rnuEIIH847fhier00
 
-# (this is the screen name of the bot)
-[mygolem]
-# - and you get these two when you get your developer access token.
-token = 284729478-KANEFIIGRVKNRVO3883474KFKEVDKknvdvdkn993
-secret = prgiIRGJIGkvmvvnkfkKNKRFNKFIFEIV48347fenef
-
-# A name for the instance of the ping chem -
-[ping]
-# For the ping chem, use the 'ping' entry point from the 'mrpump' egg.
-use = egg:mrpump#ping
-
-# A name for the instance of the time chem -
-[time]
-# For this one use the 'time' entry point from the 'time_chem' egg
-use = egg:time_chem#time
-# Any additional config required by this chem
-format = Year %Y month %m day %d
-
-[global]
-# A colon-separated list of directories wherein eggs containing chems are to be
-# found.
-plugin path = /home/me/mrpump-plugins
-# This is the same as the section name above.
-screen name = mygolem
-# Name of a file that Mr. Pump can write in. Gets no larger than 10k.
-cache = /tmp/already_seen
-# How many seconds between checking messages. Don't make Twitter angry.
-check every = 60
-# debug, info, error: minimum level of messages to display. Debug is quite
-# verbose.
-log level = info
-# Names of each section above that configures a chem.
-chems = ping, time
-
+::
+    [app]
+    # OAuth info needed to log in. You get these two when you register your app -
+    key = ABCDEFGHijkl012345MNO
+    secret = gr0igh24g8h240gh2rvun92rnuEIIH847fhier00
+    
+    # (this is the screen name of the bot)
+    [mygolem]
+    # - and you get these two when you get your developer access token.
+    token = 284729478-KANEFIIGRVKNRVO3883474KFKEVDKknvdvdkn993
+    secret = prgiIRGJIGkvmvvnkfkKNKRFNKFIFEIV48347fenef
+    
+    # A name for the instance of the ping chem -
+    [ping]
+    # For the ping chem, use the 'ping' entry point from the 'mrpump' egg.
+    use = egg:mrpump#ping
+    
+    # A name for the instance of the time chem -
+    [time]
+    # For this one use the 'time' entry point from the 'time_chem' egg
+    use = egg:time_chem#time
+    # Any additional config required by this chem
+    format = Year %Y month %m day %d
+    
+    [global]
+    # A colon-separated list of directories wherein eggs containing chems are to be
+    # found.
+    plugin path = /home/me/mrpump-plugins
+    # This is the same as the section name above.
+    screen name = mygolem
+    # Name of a file that Mr. Pump can write in. Gets no larger than 10k.
+    cache = /tmp/already_seen
+    # How many seconds between checking messages. Don't make Twitter angry.
+    check every = 60
+    # debug, info, error: minimum level of messages to display. Debug is quite
+    # verbose.
+    log level = info
+    # Names of each section above that configures a chem.
+    chems = ping, time
+    
 
 Terminology
 -----------
