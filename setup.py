@@ -5,7 +5,9 @@ except ImportError:
 
 setup(
     name='mrpump',
-    version='0.1',
+    description='A twitter bot extensible by means of eggs',
+    long_description=open('README.rst').read(),
+    version='0.2',
     license='GPLv3 or later',
     url='http://github.com/jaredjennings/mrpump',
     author="Jared Jennings",
