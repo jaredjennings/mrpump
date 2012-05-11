@@ -1,9 +1,12 @@
-Mr. Pump is a twitter bot, using tweepy.
+Mr. Pump is a twitter bot, using tweepy. You communicate with him using direct
+messages. Since Twitter can work via text messages, you can talk with Mr. Pump
+using text messages, thereby making your computer do interesting things even if
+you do not have a smartphone.
 
 To use
 ------
 
-0. Install Mr. Pump.
+0. Install Mr. Pump: python setup.py install.
 1. Set up an account for Mr. Pump on Twitter.
 2. Follow Pump's account, and make him follow yours.
 3. Visit dev.twitter.com. Log in as your Pump user. Create a new 'application.'
