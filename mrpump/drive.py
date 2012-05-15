@@ -20,9 +20,8 @@ import cPickle
 import errno
 import time
 
-def loop(api, seconds, already_seen_filename, my_screen_name, handler):
+def loop(api, waiter, already_seen_filename, my_screen_name, handler):
     log = logging.getLogger('drive')
-    orig_seconds = seconds
     try:
         already_seen = cPickle.load(file(already_seen_filename))
     except IOError, e:
@@ -37,8 +36,7 @@ def loop(api, seconds, already_seen_filename, my_screen_name, handler):
         except tweepy.TweepError, e:
             log.error('while fetching DMs: %s', e.reason)
             if 'status code = 503' in e.reason:
-                seconds *= 1.2
-                log.info('Got 503, now sleeping %.2f seconds', seconds)
+                waiter.problem()
         dms = dict([(dm.id, dm) for dm in fetched])
         log.debug('%d DMs', len(dms.keys()))
         new = set(dms.keys()) - already_seen
@@ -67,5 +65,4 @@ def loop(api, seconds, already_seen_filename, my_screen_name, handler):
         # ids we will not have an ever-growing already_seen list.
         already_seen = set(dms.keys())
         cPickle.dump(already_seen, file(already_seen_filename, 'w'))
-        log.debug('sleeping')
-        time.sleep(seconds)
+        waiter.wait()

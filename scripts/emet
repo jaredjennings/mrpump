@@ -23,6 +23,7 @@ import pkg_resources
 from mrpump.auth import get_api
 from mrpump.drive import loop
 from mrpump.forehead import Forehead
+from mrpump.waiter import Waiter
 
 def setup_logging(cp):
     levelname = cp.get('global', 'log level')
@@ -67,4 +68,5 @@ if __name__ == '__main__':
     me = cp.get('global', 'screen name')
     forehead = Forehead()
     load_chems(cp, forehead)
-    loop(api, how_often, cache, me, forehead)
+    waiter = Waiter(how_often)
+    loop(api, waiter, cache, me, forehead)
