@@ -43,7 +43,7 @@ class Waiter(object):
         self.to_wait *= self.problem_multiplier
 
     def wait(self):
-        self.log.info('Waiting %.2f seconds.', self.to_wait)
+        self.log.debug('Waiting %.2f seconds.', self.to_wait)
         time.sleep(self.to_wait)
         # decay to_wait toward initial_wait exponentially
         self.to_wait = ((self.to_wait - self.initial_wait) * 
